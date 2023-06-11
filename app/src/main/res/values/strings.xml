@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">GeoLocator</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_map">Карта</string>
+    <string name="title_list">Список меток</string>
 </resources>
