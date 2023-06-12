@@ -1,42 +1,58 @@
 package ru.veider.geolocator.ui.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import org.koin.android.ext.android.inject
+import by.kirich1409.viewbindingdelegate.viewBinding
+import ru.veider.geolocator.R
+import ru.veider.geolocator.databinding.DialogEditMarkBinding
 import ru.veider.geolocator.databinding.FragmentListBinding
+import ru.veider.geolocator.domain.MarkData
+import ru.veider.geolocator.ui.dialog_edit_mark.EditMarkDialog
+import ru.veider.geolocator.ui.viewmodels.ListViewModel
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(R.layout.fragment_list) {
 
-	private var _binding: FragmentListBinding? = null
+	private val binding by viewBinding(FragmentListBinding::bind)
+	private lateinit var adapter: ListAdapter
 
-	// This property is only valid between onCreateView and
-	// onDestroyView.
-	private val binding get() = _binding!!
+	private val listViewModel: ListViewModel by inject()
 
-	override fun onCreateView(
-		inflater: LayoutInflater,
-		container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View {
-		val listViewModel =
-			ViewModelProvider(this).get(ListViewModel::class.java)
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
 
-		_binding = FragmentListBinding.inflate(inflater, container, false)
-		val root: View = binding.root
-
-		val textView: TextView = binding.textDashboard
-		listViewModel.text.observe(viewLifecycleOwner) {
-			textView.text = it
-		}
-		return root
+		workToAdapter()
+		workToObjects()
 	}
 
-	override fun onDestroyView() {
-		super.onDestroyView()
-		_binding = null
+	private fun workToAdapter() {
+		adapter=ListAdapter(
+			object:ListAdapter.OnClick{
+				override fun editMark(id: Long) {
+					findNavController().navigate(R.id.action_fragmentList_to_dialogEditMark,
+					bundleOf(EditMarkDialog.ID to id)
+					)
+				}
+
+				override fun deleteMark(id: Long) {
+					listViewModel.deleteMark(id)
+				}
+
+			}, resources
+		)
+		binding.marksList.adapter = adapter
+	}
+
+	private fun workToObjects(){
+		listViewModel.marks.observe(viewLifecycleOwner){
+			val list = mutableListOf<MarkData>()
+			it.forEach {
+				list.add(it.copy())
+			}
+			adapter.submitList(list)
+		}
 	}
 }

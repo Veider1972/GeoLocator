@@ -3,18 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_map">
+    app:startDestination="@+id/fragmentMap">
 
     <fragment
-        android:id="@+id/navigation_map"
+        android:id="@+id/fragmentMap"
         android:name="ru.veider.geolocator.ui.map.MapFragment"
         android:label="@string/title_map"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_fragmentMap_to_dialogAddMark"
+            app:destination="@id/dialogAddMark" />
+
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_list"
+        android:id="@+id/fragmentList"
         android:name="ru.veider.geolocator.ui.list.ListFragment"
         android:label="@string/title_list"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_fragmentList_to_dialogEditMark"
+            app:destination="@id/dialogEditMark" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogAddMark"
+        android:name="ru.veider.geolocator.ui.dialog_add_mark.AddMarkDialog"
+        android:label="AddMarkDialog"
+        tools:layout="@layout/dialog_add_mark"/>
+    <dialog
+        android:id="@+id/dialogEditMark"
+        android:name="ru.veider.geolocator.ui.dialog_edit_mark.EditMarkDialog"
+        android:label="EditMarkDialog"
+        tools:layout="@layout/dialog_edit_mark"/>
 
 </navigation>

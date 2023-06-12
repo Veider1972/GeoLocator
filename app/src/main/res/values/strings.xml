@@ -2,4 +2,14 @@
     <string name="app_name">GeoLocator</string>
     <string name="title_map">Карта</string>
     <string name="title_list">Список меток</string>
+    <string name="name_hint">Подпись метки</string>
+    <string name="name_text">Подпись метки: %s</string>
+    <string name="desc_hint">Описание</string>
+    <string name="desc_text">Описание:\n%s</string>
+    <string name="coordinates_hint">Координаты</string>
+    <string name="coordinates_text">Широта: %s, Долгота: %s</string>
+    <string name="accept_button">Принять</string>
+    <string name="cancel_button">Отменить</string>
+    <string name="mark_name_error">Поле метки не может быть пустым</string>
+    <string name="mark_coo_error">Ошибка обработки данных</string>
 </resources>
