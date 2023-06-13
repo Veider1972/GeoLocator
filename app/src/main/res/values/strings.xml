@@ -7,9 +7,20 @@
     <string name="desc_hint">Описание</string>
     <string name="desc_text">Описание:\n%s</string>
     <string name="coordinates_hint">Координаты</string>
-    <string name="coordinates_text">Широта: %s, Долгота: %s</string>
+    <string name="coordinates_text">Координаты: %s</string>
     <string name="accept_button">Принять</string>
     <string name="cancel_button">Отменить</string>
     <string name="mark_name_error">Поле метки не может быть пустым</string>
     <string name="mark_coo_error">Ошибка обработки данных</string>
+    <string name="permission_message">Для корректной работы программы необходимо дать разрешение приложению к геолокации</string>
+    <string name="permission_denied">Без доступа к геолокации определение вашего местоположения невозможно</string>
+    <string name="permission_granted">Геолокация разрешена</string>
+
+    <string name="coordinates_by_gps">Координаты определены по GPS</string>
+    <string name="coordinates_by_network">Координаты определены по сети</string>
+
+    <string name="latitude_north">с.ш.</string>
+    <string name="latitude_south">ю.ш.</string>
+    <string name="longitude_west">з.д.</string>
+    <string name="longitude_east">в.д.</string>
 </resources>

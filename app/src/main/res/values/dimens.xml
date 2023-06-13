@@ -6,4 +6,6 @@
     <dimen name="fab_map_icon_size">35dp</dimen>
     <dimen name="corner_10dp">10dp</dimen>
     <dimen name="corner_15dp">15dp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
 </resources>

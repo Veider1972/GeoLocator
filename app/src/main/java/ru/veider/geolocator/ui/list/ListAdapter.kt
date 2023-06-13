@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.veider.geolocator.R
 import ru.veider.geolocator.databinding.ItemMarkBinding
 import ru.veider.geolocator.domain.MarkData
+import ru.veider.geolocator.utils.WorldSide
+import ru.veider.geolocator.utils.toDegree
 
 class ListAdapter(
 	private val onClick: OnClick,
@@ -39,7 +41,10 @@ class ListAdapter(
 					desc.isVisible = true
 					desc.text = markData.desc
 				}
-				coordinates.text = resources.getString(R.string.coordinates_text, markData.x.toString(), markData.y.toString())
+				coordinates.text = resources.getString(
+					R.string.coordinates_text,
+					"${markData.x.toDegree(resources, WorldSide.LATITUDE)} ${markData.y.toDegree(resources, WorldSide.LONGITUDE)}"
+				)
 				closeButton.setOnClickListener {
 					onClick.deleteMark(markData.id)
 				}

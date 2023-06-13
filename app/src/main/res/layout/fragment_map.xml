@@ -54,4 +54,14 @@
         app:maxImageSize="@dimen/fab_map_icon_size"
         android:src="@drawable/ic_draw_24x24"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/myPlaceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/pinButton"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="@dimen/default_divider"
+        app:maxImageSize="@dimen/fab_map_icon_size"
+        android:src="@drawable/ic_my_location_24x24"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

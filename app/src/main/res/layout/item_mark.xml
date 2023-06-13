@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
-    android:padding="8dp"
+    android:paddingHorizontal="@dimen/padding_8dp"
+    android:paddingTop="@dimen/padding_8dp"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:layout_width="match_parent"
@@ -12,14 +13,14 @@
     android:id="@+id/closeButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="6dp"
+    app:cardCornerRadius="@dimen/corner_10dp"
+    app:cardElevation="@dimen/padding_8dp"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintEnd_toEndOf="parent">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/padding_8dp"
         android:src="@drawable/ic_close_24x24"/>
 </com.google.android.material.card.MaterialCardView>
 
@@ -30,7 +31,7 @@
         android:layout_marginTop="4dp"
         tools:text="Закусочная Дядя Фёдор"
         style="@style/ItemMarkTitle"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="@dimen/padding_8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/closeButton"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -44,7 +45,7 @@
         android:id="@+id/desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="@dimen/padding_4dp"
         tools:text="Описание метки"
         style="@style/ItemMarkDesc"
         app:layout_constraintTop_toBottomOf="@id/barrier"
@@ -53,10 +54,16 @@
         android:id="@+id/coordinates"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="@dimen/padding_4dp"
         tools:text="Широта=XXXX, Долгота=YYYY"
         style="@style/ItemMarkCoordinates"
         app:layout_constraintTop_toBottomOf="@id/desc"
         app:layout_constraintStart_toStartOf="parent"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/purple_200"
+        app:layout_constraintTop_toBottomOf="@id/coordinates"
+        android:layout_marginTop="@dimen/padding_8dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
